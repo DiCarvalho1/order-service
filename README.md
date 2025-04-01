@@ -21,7 +21,7 @@ Este é um projeto simples utilizando **Spring Boot** para gerenciar pedidos em 
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/order-service.git
+   [git clone https://github.com/seu-usuario/order-service.git](https://github.com/DiCarvalho1/order-service.git)
 
 2. Navegue até a pasta do projeto:
     cd order-service
