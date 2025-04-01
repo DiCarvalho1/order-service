@@ -39,10 +39,12 @@ Método: POST
 Endpoint: /orders
 
 Request body:
+```
     {
     "customerName": "João Silva",
     "totalAmount": 150.75
     }
+```
 
 Resposta: 201 Created
 
@@ -52,6 +54,7 @@ Método: GET
 Endpoint: /orders
 
 Resposta:
+```
     [
     {
         "id": 1,
@@ -60,6 +63,7 @@ Resposta:
         "createdAt": "2025-03-31T14:30:00"
     }
     ]
+```
 
 3. Buscar Pedido por ID
 Método: GET
@@ -84,14 +88,17 @@ O corpo da requisição deve conter o campo "version", obtido no GET /orders/{id
 Se a versão enviada for diferente da versão atual do banco, o pedido já foi atualizado por outro usuário, e a API retornará erro 409 - Erro de Concorrência.
 
 Corpo da requisição (JSON):
+```
 {
   "customerName": "Maria Souza",
   "totalAmount": 200.00,
   "version": 0
 }
+```
 
 Possíveis respostas:
 ✅ Sucesso (200 OK) (Se a versão for correta)
+```
 {
   "id": 1,
   "customerName": "Maria Souza",
@@ -99,11 +106,14 @@ Possíveis respostas:
   "createdAt": "2025-03-31T12:00:00",
   "version": 1
 }
+```
 
 ❌ Erro de concorrência (409 Conflict) (Se outro usuário já modificou o pedido)
+```
 {
   "error": "Erro de concorrência: O pedido foi modificado por outro usuário."
 }
+```
 
 ## Importando a Collection do Postman
 
