@@ -136,3 +136,12 @@ Para facilitar o uso e testar a API, incluí uma collection do **Postman** no pr
 
 Observações
 Certifique-se de que o banco de dados PostgreSQL esteja em funcionamento antes de iniciar o projeto.
+
+**Como garantir a alta disponibilidade?**
+> Para garantir a alta disponibilidade do serviço, podemos adotar as seguintes práticas:
+> Escalabilidade horizontal com load balancing para distribuir a carga entre várias instâncias da aplicação.
+> Escalabilidade do banco de dados utilizando replicação, particionamento e caching para melhorar o desempenho.
+> Fila de mensagens e processamento assíncrono para evitar bloqueios e melhorar a eficiência do sistema.
+> Monitoramento contínuo e auto-recuperação para garantir que falhas sejam tratadas rapidamente.
+> Backups regulares e um plano de recuperação de desastres para evitar perda de dados.
+> Testes de carga para identificar e corrigir gargalos antes que eles impactem a produção.
