@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "aea167e7-67f2-4175-836b-3229b91f25e1",
+		"_postman_id": "a2316977-1d80-4c0d-ad12-3dcfa8568076",
 		"name": "Orders project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "10488324"
@@ -88,6 +88,64 @@
 					"path": [
 						"orders",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar pedido",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerName\": \"João Silva\",\r\n  \"totalAmount\": 120.00,\r\n  \"version\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar pedido Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerName\": \"João Silva\",\r\n  \"totalAmount\": 120.00,\r\n  \"version\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"7"
 					]
 				}
 			},
