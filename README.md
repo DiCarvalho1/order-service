@@ -39,10 +39,12 @@ Método: POST
 Endpoint: /orders
 
 Request body:
+```
     {
     "customerName": "João Silva",
     "totalAmount": 150.75
     }
+```
 
 Resposta: 201 Created
 
@@ -52,6 +54,7 @@ Método: GET
 Endpoint: /orders
 
 Resposta:
+```
     [
     {
         "id": 1,
@@ -60,6 +63,7 @@ Resposta:
         "createdAt": "2025-03-31T14:30:00"
     }
     ]
+```
 
 3. Buscar Pedido por ID
 Método: GET
@@ -74,6 +78,42 @@ Método: DELETE
 Endpoint: /orders/{id}
 
 Resposta: 204 No Content após excluir com sucesso.
+
+5. Atualizar um pedido
+Método: PUT
+Atualiza um pedido existente. Este endpoint implementa controle de concorrência otimista usando @Version para evitar conflitos.
+
+Requisitos:
+O corpo da requisição deve conter o campo "version", obtido no GET /orders/{id}.
+Se a versão enviada for diferente da versão atual do banco, o pedido já foi atualizado por outro usuário, e a API retornará erro 409 - Erro de Concorrência.
+
+Corpo da requisição (JSON):
+```
+{
+  "customerName": "Maria Souza",
+  "totalAmount": 200.00,
+  "version": 0
+}
+```
+
+Possíveis respostas:
+✅ Sucesso (200 OK) (Se a versão for correta)
+```
+{
+  "id": 1,
+  "customerName": "Maria Souza",
+  "totalAmount": 200.00,
+  "createdAt": "2025-03-31T12:00:00",
+  "version": 1
+}
+```
+
+❌ Erro de concorrência (409 Conflict) (Se outro usuário já modificou o pedido)
+```
+{
+  "error": "Erro de concorrência: O pedido foi modificado por outro usuário."
+}
+```
 
 ## Importando a Collection do Postman
 
@@ -96,3 +136,18 @@ Para facilitar o uso e testar a API, incluí uma collection do **Postman** no pr
 
 Observações
 Certifique-se de que o banco de dados PostgreSQL esteja em funcionamento antes de iniciar o projeto.
+
+## Como garantir a alta disponibilidade?
+**Para garantir a alta disponibilidade do serviço, podemos adotar as seguintes práticas:**
+
+Escalabilidade horizontal com load balancing para distribuir a carga entre várias instâncias da aplicação.
+
+Escalabilidade do banco de dados utilizando replicação, particionamento e caching para melhorar o desempenho.
+
+Fila de mensagens e processamento assíncrono para evitar bloqueios e melhorar a eficiência do sistema.
+
+Monitoramento contínuo e auto-recuperação para garantir que falhas sejam tratadas rapidamente.
+
+Backups regulares e um plano de recuperação de desastres para evitar perda de dados.
+
+Testes de carga para identificar e corrigir gargalos antes que eles impactem a produção.
