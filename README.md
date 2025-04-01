@@ -75,6 +75,36 @@ Endpoint: /orders/{id}
 
 Resposta: 204 No Content após excluir com sucesso.
 
+5. Atualizar um pedido
+Método: PUT
+Atualiza um pedido existente. Este endpoint implementa controle de concorrência otimista usando @Version para evitar conflitos.
+
+Requisitos:
+O corpo da requisição deve conter o campo "version", obtido no GET /orders/{id}.
+Se a versão enviada for diferente da versão atual do banco, o pedido já foi atualizado por outro usuário, e a API retornará erro 409 - Erro de Concorrência.
+
+Corpo da requisição (JSON):
+{
+  "customerName": "Maria Souza",
+  "totalAmount": 200.00,
+  "version": 0
+}
+
+Possíveis respostas:
+✅ Sucesso (200 OK) (Se a versão for correta)
+{
+  "id": 1,
+  "customerName": "Maria Souza",
+  "totalAmount": 200.00,
+  "createdAt": "2025-03-31T12:00:00",
+  "version": 1
+}
+
+❌ Erro de concorrência (409 Conflict) (Se outro usuário já modificou o pedido)
+{
+  "error": "Erro de concorrência: O pedido foi modificado por outro usuário."
+}
+
 ## Importando a Collection do Postman
 
 Para facilitar o uso e testar a API, incluí uma collection do **Postman** no projeto. Siga os passos abaixo para importar a collection no Postman:
