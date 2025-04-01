@@ -139,6 +139,7 @@ Certifique-se de que o banco de dados PostgreSQL esteja em funcionamento antes d
 
 ## Como garantir a alta disponibilidade?
 **Para garantir a alta disponibilidade do serviço, podemos adotar as seguintes práticas:**
+
 Escalabilidade horizontal com load balancing para distribuir a carga entre várias instâncias da aplicação.
 
 Escalabilidade do banco de dados utilizando replicação, particionamento e caching para melhorar o desempenho.
