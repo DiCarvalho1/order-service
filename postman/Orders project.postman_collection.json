@@ -26,13 +26,58 @@
 			"response": []
 		},
 		{
+			"name": "Buscar pedidos por cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders?customerName=Maria Santos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					],
+					"query": [
+						{
+							"key": "customerName",
+							"value": "Maria Santos"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar um pedido específico",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Criar um pedido",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"customerName\": \"João Silva\",\r\n    \"totalAmount\": 150.75\r\n}",
+					"raw": "{\r\n    \"customerName\": \"Maria Santos\",\r\n    \"totalAmount\": 87.23\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,32 +99,12 @@
 			"response": []
 		},
 		{
-			"name": "Buscar um pedido específico",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/orders/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"orders",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Deletar um pedido",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/orders/1",
+					"raw": "http://localhost:8080/orders/6",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -87,7 +112,7 @@
 					"port": "8080",
 					"path": [
 						"orders",
-						"1"
+						"6"
 					]
 				}
 			},
@@ -100,7 +125,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"customerName\": \"João Silva\",\r\n  \"totalAmount\": 120.00,\r\n  \"version\": 0\r\n}",
+					"raw": "{\r\n  \"customerName\": \"João Silva\",\r\n    \"totalAmount\": 100.20,      \r\n  \"version\": null\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -108,7 +133,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/orders/7",
+					"raw": "http://localhost:8080/orders/6",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -116,7 +141,7 @@
 					"port": "8080",
 					"path": [
 						"orders",
-						"7"
+						"6"
 					]
 				}
 			},
@@ -129,7 +154,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"customerName\": \"João Silva\",\r\n  \"totalAmount\": 120.00,\r\n  \"version\": 0\r\n}",
+					"raw": "{\r\n  \"customerName\": \"João Silva\",\r\n  \"totalAmount\": 120.00,\r\n  \"version\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

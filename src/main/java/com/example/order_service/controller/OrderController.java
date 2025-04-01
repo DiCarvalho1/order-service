@@ -21,8 +21,16 @@ public class OrderController {
     }
 
     @GetMapping
-    public List<Order> getAllOrders() {
-        return orderService.getAllOrders();
+    public ResponseEntity<List<Order>> getOrders(@RequestParam(required = false) String customerName) {
+        List<Order> orders;
+
+        if (customerName != null && !customerName.isEmpty()) {
+            orders = orderRepository.findByCustomerName(customerName);
+        } else {
+            orders = orderRepository.findAll();
+        }
+
+        return ResponseEntity.ok(orders);
     }
 
     @GetMapping("/{id}")
