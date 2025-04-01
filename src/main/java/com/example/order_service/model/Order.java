@@ -23,6 +23,9 @@ public class Order {
 
     private LocalDateTime createdAt;
 
+    @Version
+    private Integer version;
+
     public Order() {
         this.createdAt = LocalDateTime.now();
     }
@@ -55,6 +58,14 @@ public class Order {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }
 

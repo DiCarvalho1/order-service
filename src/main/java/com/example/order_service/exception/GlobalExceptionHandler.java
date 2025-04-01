@@ -1,5 +1,7 @@
 package com.example.order_service.exception;
 
+import jakarta.persistence.OptimisticLockException;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -23,5 +25,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<String> handleDuplicateOrderException(IllegalArgumentException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(OptimisticLockingFailureException.class)
+    public ResponseEntity<String> handleOptimisticLockingFailure(OptimisticLockingFailureException ex) {
+        return new ResponseEntity<>("Erro de concorrência! O pedido foi modificado por outro usuário. Tente novamente.", HttpStatus.CONFLICT);
     }
 }
