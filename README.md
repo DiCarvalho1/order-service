@@ -21,22 +21,17 @@ Este é um projeto simples utilizando **Spring Boot** para gerenciar pedidos em 
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/order-service.git
+   [git clone https://github.com/seu-usuario/order-service.git](https://github.com/DiCarvalho1/order-service.git)
 
 2. Navegue até a pasta do projeto:
     cd order-service
 
-3. Configure as credenciais do banco de dados no arquivo application.properties:
-    spring.datasource.url=jdbc:postgresql://localhost:5432/your_db
-    spring.datasource.username=your_username
-    spring.datasource.password=your_password
-
-4. Rode o projeto:
+3. Rode o projeto:
     mvn spring-boot:run
 
 A aplicação estará disponível em http://localhost:8080.
 
-Endpoints da API
+## Endpoints da API
 
 1. Criar um Pedido
 Método: POST
@@ -79,6 +74,25 @@ Método: DELETE
 Endpoint: /orders/{id}
 
 Resposta: 204 No Content após excluir com sucesso.
+
+## Importando a Collection do Postman
+
+Para facilitar o uso e testar a API, incluí uma collection do **Postman** no projeto. Siga os passos abaixo para importar a collection no Postman:
+
+### Passos para importar a collection:
+
+1. **Baixe o arquivo da Collection**:
+   - Após clonar o repositório, acesse a pasta `postman` no projeto.
+   - O arquivo da collection será chamado `Orders project.postman_collection.json`.
+
+2. **Importe a collection no Postman**:
+   - Abra o **Postman**.
+   - No canto superior esquerdo, clique em **Import**.
+   - Selecione **File** e escolha o arquivo `Orders project.postman_collection.json` que você baixou do repositório.
+   - Clique em **Open** para adicionar a collection à sua interface do Postman.
+
+3. **Testar os Endpoints**:
+   - Agora você pode usar a collection no Postman para testar os endpoints da API, como descrito na seção "Endpoints da API".
 
 Observações
 Certifique-se de que o banco de dados PostgreSQL esteja em funcionamento antes de iniciar o projeto.
